@@ -1,0 +1,12 @@
+---
+layout: "page"
+pagination:
+    data: index
+    size: 1
+    alias: bdrPage
+---
+
+{% include partials/head with title: bdrPage.title %}
+{% include modules/carousel/carousel-home  with content: bdrPage.body %}
+{% include modules/project-lead/project-lead with data : bdrPage.data , content : bdrPage.content %}
+{% include modules/cards/cards with data : bdrPage.featuredCards %}

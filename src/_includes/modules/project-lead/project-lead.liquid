@@ -1,0 +1,53 @@
+<link rel="stylesheet" type="text/css" href="/static/css/modules/projectLead.module.css"/>
+<link rel="stylesheet" type="text/css" href="/static/css/modules/intro.module.css" />
+{% assign j = 0 %}  
+{% assign n = 0 %}   
+{% for item in data.projects.highlightedProjects %}
+    <section class="mB__150 projectlead">
+        <div class="container"> 
+            <div class="row">
+                <div class="col-md-12">
+                    {% assign project_video = item.highlightedImage.video.mediaItemUrl %}
+                    {% assign project_thumbnail = item.highlightedImage.highlightedThumbnailMobile.sourceUrl %}
+                    {% assign client = item.clients.edges[0].node.name %}
+                    <a href="projects">
+                        <div class="project__section" >
+                            <div class="Tilt">
+                                <div class="Tilt-inner">
+                                    <div class="project__leadimage video_container d-none d-lg-block">
+                                        <video src="{{ project_video }}" autoPlay playsInline loop muted></video>
+                                    </div>
+                                    <div class="project__leadimage d-lg-none d-block">
+                                        {% responsiveimage project_thumbnail "project-lead" %}
+                                    </div>
+                                </div>
+                            </div>      
+                        </div>
+                        <div class="project__name">
+                            <span>A new reading experience for City: to be seen, before it’s read</span>
+                            <span class="font__grey project__type"> / {{client}} </span> 
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div> 
+        {% assign i = j | modulo: 2 %}
+        {% if i == "1" %}
+            <section class="categoryIntro__cont">
+                <div class="container textContainer">
+                    <div class="row">
+                        <div class="col-md-10 offset-md-1">
+                            <div class="textContent introText homeLeadText">
+                                <span class="homeText">
+                                    {{data.featuredtext[n].content}}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            {% assign n = n | | plus: 1 %}
+        {% endif %}
+    </section>
+    {% assign j = j | | plus: 1 %}
+{% endfor %}

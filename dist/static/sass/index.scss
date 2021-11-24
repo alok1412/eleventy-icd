@@ -1,0 +1,61 @@
+@font-face {
+  font-family: 'TundraOT Medium Italic';
+  // src: url('../assets/fonts/tundra/TundraOT-MediumItalic.woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+000-5FF; /* Download only latin glyphs */  
+  src: local('TundraOT Medium Italic'),url('../assets/fonts/tundra/TundraOT-MediumItalic.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Berthold Akzidenz Grotesk Bold';
+  src: url("../assets/fonts/berthold/berthold-bold.eot"); /* IE9 Compat Modes */
+  src: url("../assets/fonts/berthold/berthold-bold.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("../assets/fonts/berthold/berthold-bold.otf") format("opentype"), /* Open Type Font */
+    url("../assets/fonts/berthold/berthold-bold.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("../assets/fonts/berthold/berthold-bold.woff") format("woff"), /* Modern Browsers */
+    url("../assets/fonts/berthold/berthold-bold.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Berthold Akzidenz Grotesk Light";
+  src: url("../assets/fonts/berthold/berthold-light.eot"); /* IE9 Compat Modes */
+  src: url("../assets/fonts/berthold/berthold-light.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("../assets/fonts/berthold/berthold-light.otf") format("opentype"), /* Open Type Font */
+    url("../assets/fonts/berthold/berthold-light.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("../assets/fonts/berthold/berthold-light.woff") format("woff"), /* Modern Browsers */
+    url("../assets/fonts/berthold/berthold-light.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Berthold Akzidenz Grotesk";
+  src: url("../assets/fonts/berthold/berthold-regular.eot"); /* IE9 Compat Modes */
+  src: url("../assets/fonts/berthold/berthold-regular.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("../assets/fonts/berthold/berthold-regular.otf") format("opentype"), /* Open Type Font */
+    url("../assets/fonts/berthold/berthold-regular.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("../assets/fonts/berthold/berthold-regular.woff") format("woff"), /* Modern Browsers */
+    url("../assets/fonts/berthold/berthold-regular.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TundraOT Light";
+  src: url("../assets/fonts/tundra/TundraOT-Light.eot"); /* IE9 Compat Modes */
+  src: url("../assets/fonts/tundra/TundraOT-Light.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("../assets/fonts/tundra/TundraOT-Light.otf") format("opentype"), /* Open Type Font */
+    url("../assets/fonts/tundra/TundraOT-Light.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("../assets/fonts/tundra/TundraOT-Light.woff") format("woff"), /* Modern Browsers */
+    url("../assets/fonts/tundra/TundraOT-Light.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

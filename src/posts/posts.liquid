@@ -1,0 +1,88 @@
+---
+layout: "page"
+pagination:
+   data: posts
+   size: 1
+   alias: post
+permalink: posts/{{ post.slug }}/index.html
+---
+
+{% include partials/head with title: post.title %}
+
+<link rel="stylesheet" type="text/css" href="/static/css/modules/singlePost.module.css"/>
+
+<section class="singlePost mT__260">
+    <div class="images-loaded-container">
+        {% if post.featuredImage %}
+            <div class="leadImage">
+               <span class="full_thumb">
+                  {% responsiveimage post.featuredImage "post-lead" %}
+               </span>
+            </div>
+            {% else %}
+                <span class="full_thumb">
+                </span>
+        {% endif %}
+    </div>
+    <div class="postContent_cont">
+   <div class="container">
+      <div class="row">
+         <div class="col-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
+            <div class="posts__container">
+               <div class="post__tag"><span class="yellow__tag"><span>{{ post.categories }}</span></span></div>
+               <h1>{{ post.title }}</h1>
+               <div class="post__author">
+                  <span class="author__img">
+                     {% if post.authorImg %}
+                           {% responsiveimage post.authorImg "post-lead" %}
+                     {% endif %}
+                  </span>
+                  <span class="post-detail">{{ post.author }} / {{ post.date | date: "%d %B %Y" }} / <span> {{ post.categories }} </span> </span>
+                  <div class="social__media header_socialmedia d-none d-lg-block">
+                     <span class="icon share-icon icons-hide"><a href="" class="linkedin-icon" target="_blank"></a></span>
+                     <span class="icon share-icon icons-hide"><a href="" class="twitter-icon" target="_blank"></a></span>
+                     <span class="icon share-icon icons-hide"><a href="" class="fb-icon" target="_blank"></a></span>
+                     <span class="icon" onclick="toggleShareIcons()"><img loading="lazy" decoding="async" src="/static/assets/images/post-buttons/share.svg" width="20" height="20" class="icon-img shareIcon--main" />share</span>
+                     <span class="like-btn icon">
+                        <div class="like-icon"><img loading="lazy" decoding="async" src="/static/assets/images/like-btn/like.svg" class="icon-img icon-outline"></div>
+                        {{ post.like }} likes
+                     </span>
+                  </div>
+                  <div class="social__media header_socialmedia header_socialmedia_mobile d-block d-lg-none">
+                     <span class="like-btn icon">
+                        <div class="like-icon"><img loading="lazy" decoding="async" src="/static/assets/images/like-btn/like.svg" class="icon-img icon-outline"></div>
+                        {{ post.like }} likes
+                     </span>
+                     <span class="icon share-icon icons-hide"><a href="" class="linkedin-icon" target="_blank"></a></span>
+                     <span class="icon share-icon icons-hide"><a href="" class="twitter-icon" target="_blank"></a></span>
+                     <span class="icon share-icon icons-hide"><a href="" class="fb-icon" target="_blank"></a></span>
+                     <span class="icon" onclick="toggleShareIcons()"><img loading="lazy" decoding="async" src="/static/assets/images/post-buttons/share.svg" width="20" height="20" class="icon-img shareIcon--main" />share</span>
+                  </div>
+               </div>
+               <div class="postContent">
+                    {{post.content}}
+               </div>
+            </div>
+               <div class="social__media d-none d-lg-block">
+                  <span class="icon share-icon icons-hide"><a href="" class="linkedin-icon" target="_blank"></a></span>
+                  <span class="icon share-icon icons-hide"><a href="" class="twitter-icon" target="_blank"></a></span>
+                  <span class="icon share-icon icons-hide"><a href="" class="fb-icon" target="_blank"></a></span>
+                  <span class="icon" onclick="toggleShareIcons()"><img loading="lazy" decoding="async" src="/static/assets/images/post-buttons/share.svg" width="20" height="20" class="icon-img shareIcon--main" />share</span>
+                  <span class="like-btn icon">
+                     <div class="like-icon"><img loading="lazy" decoding="async" src="/static/assets/images/like-btn/like.svg" class="icon-img icon-outline"></div>
+                     {{ post.like }} likes
+                  </span>
+               </div>
+         </div>
+      </div>
+   </div>
+</div>
+</section>
+
+<script>
+  // add class to body element
+   document.body.classList.add('bg-yellow');
+   function toggleShareIcons() {
+      $('.share-icon').toggleClass('icons-hide');
+   }
+</script>

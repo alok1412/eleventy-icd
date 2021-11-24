@@ -1,0 +1,87 @@
+@import "../variables.scss";
+// intro-text.scss
+
+.textContent {
+    // margin: 0 0 150px;
+    margin: 0 0 100px;
+
+    padding: 0 50px;
+    @include for-upto-tablet-portrait {
+        margin-bottom: 60px;
+        margin: 0px !important;
+        padding: 0;
+    }
+    a{
+        color: $color-grey;
+    }
+    p {
+        font-family: 'TundraOT Light';
+        // font-size: 48px;
+        font-weight: 300;
+        // line-height: 64px;
+        letter-spacing: -0.75px;
+        display: block;
+        margin-bottom: 30px;
+        color: $color-grey !important;
+
+        font-size: 42px;
+        line-height: 56px;
+        word-spacing: 1.5px;
+
+        @include for-tablet-horizontal-to-laptop {
+            font-size: 40px;
+            line-height: 54px;
+            margin-bottom: 15px;
+        }
+        
+        @include for-upto-tablet-portrait {
+            font-size: 26px;
+            line-height: 36px;
+            margin-bottom: 36px;
+            letter-spacing: -0.7px;    
+        }
+        em {
+          color: #ec1d24;
+          font-style: inherit;
+        }
+    }
+    
+    .defaultText{
+        p{
+            font-family: $akz-bold;
+            font-size: 24px;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: normal;
+            letter-spacing: -0.5px;
+            color: $color-black;
+            margin-bottom: 0px;
+            @include for-upto-tablet-portrait {
+                font-size: 18px;
+                letter-spacing: -0.2px;
+                line-height: 1;
+            }
+        }
+        em{
+            letter-spacing: -1px;
+            color: $color-grey;
+            font-style: normal;
+        }
+    }
+}
+
+.homeLeadText{
+    margin: 130px 0 150px 0;
+    // margin-top: 100px !important;
+
+    @include for-tablet-horizontal-to-laptop {
+        margin: 130px 0;
+    }
+}
+
+.blackText{
+    .homeText p,
+    .homeText em{
+        color: $color-black;
+    }
+}

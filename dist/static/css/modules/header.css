@@ -1,0 +1,121 @@
+/* Global functions include */
+@import url("https://fonts.googleapis.com/css?family=Rock+Salt&display=swap");
+/* Global Fonts */
+/* Global Colors */
+header { position: fixed; margin: auto; left: 0; right: 0; top: 0; z-index: 5000; pointer-events: none; }
+
+header .menu-cont { transform: translateZ(0); will-change: transform; transition: 0.3s ease all; pointer-events: all; }
+
+header .header__hide { transform: translateY(-100%); }
+
+header .yellowLine { position: relative; display: block; height: 12px; background: #FFE300; }
+
+header .yellowLine .loader { position: absolute; background: url(/static/assets/loader/loader.gif) repeat-x; width: 100%; height: 100%; display: block; right: 0; }
+
+header .yellowLine .hideLoader { width: 0; transition: width 5s ease-out; }
+
+header .nav-menu { padding-inline-start: 0; text-align: right; margin: 0; }
+
+@media (min-width: 992px) { header .nav-menu .container { padding: 0; } }
+
+header .nav-menu ul { margin: 0; padding: 0 16px; width: 100%; }
+
+@media (max-width: 767px) { header .nav-menu ul { padding: 0px; } }
+
+@media (max-width: 991px) { header .nav-menu { position: fixed; transform: translateX(100vw); left: 100%; top: 0; width: 100vw; height: 100vh; overflow-y: scroll; background: #FFE300; opacity: 0; padding: 80px 16px 0; text-align: left; z-index: -1; transition: ease all 0.5s; } }
+
+@media (max-width: 991px) { header .nav-menu.is-active { transform: translateX(-100vw); transition: ease all 0.5s; } }
+
+header .nav-menu li { display: inline-block; padding: 30px 25px; }
+
+@media (max-width: 991px) { header .nav-menu li { opacity: 0; transform: translateY(-10px); } }
+
+header .nav-menu li.mobile__menu--items { display: none; }
+
+header .nav-menu li.copyright { display: none; }
+
+@media (max-width: 991px) { header .nav-menu li.copyright { display: block; font-family: "Berthold Akzidenz Grotesk Light", sans-serif; font-size: 10px; letter-spacing: 0; line-height: 11px; color: #000000; width: 100%; margin: 0; left: 0; padding: 12.5px 0 0 0 !important; } }
+
+@media (max-width: 991px) { header .nav-menu li { display: block; padding: 0; }
+  header .nav-menu li a { display: block; padding: 12.5px 0; }
+  header .nav-menu li.mobile__menu--items { display: block; } }
+
+header .nav-menu li a { color: #191919; font-family: "Berthold Akzidenz Grotesk Bold", sans-serif; font-size: 20px; letter-spacing: -0.3px; line-height: 28px; position: relative; }
+
+@media (max-width: 991px) { header .nav-menu li a { color: #000000; line-height: 32px; } }
+
+header .nav-menu li a.active::after { content: ''; height: 6px; width: 100%; background: #FFE300; position: absolute; bottom: -17px; left: 0; }
+
+@media (max-width: 991px) { header .nav-menu li a.active::after { content: none; } }
+
+header .nav-menu li:last-child { padding-right: 0; }
+
+header .nav-menu .search-icon { float: right; padding: 33px 0px 0 25px; }
+
+@media (max-width: 991px) { header .nav-menu .search-icon { position: absolute; top: 40px; right: 25px; z-index: 9999; } }
+
+header .logo { width: 172px; transition: ease all 0.3s; }
+
+@media (max-width: 991px) { header .logo { max-width: 48px; } }
+
+header .logo-container { display: flex; align-items: center; }
+
+header .expand { height: 400px; }
+
+.hamburger { font: inherit; overflow: visible; margin: 0; padding: 23px 0px 10px 5px; cursor: pointer; transition-timing-function: linear; transition-duration: .15s; transition-property: opacity,filter; text-transform: none; color: inherit; border: 0; background-color: transparent; float: right; }
+
+.hamburger-box { position: relative; display: inline-block; width: 24px; height: 24px; }
+
+.hamburger-inner:after, .hamburger-inner:before { display: block; content: ""; }
+
+.hamburger-inner, .hamburger-inner::after, .hamburger-inner::before { position: absolute; width: 24px; height: 2.7px; transition-timing-function: ease; transition-duration: .15s; transition-property: transform; border-radius: 0px; background-color: #000000; }
+
+.hamburger-inner { top: 50%; display: block; margin-top: -2px; }
+
+.hamburger.is-active .hamburger-inner, .hamburger.is-active .hamburger-inner::after, .hamburger.is-active .hamburger-inner::before { background-color: #000000; }
+
+.hamburger--spring .hamburger-inner { top: 2px; transition: background-color 0s linear .13s; }
+
+.hamburger--spring .hamburger-inner::before { top: 8px; transition: top 0.1s cubic-bezier(0.33333, 0.66667, 0.66667, 1) 0.2s, transform 0.13s cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+
+.hamburger--spring .hamburger-inner::after { top: 16px; transition: top 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1) 0.2s, transform 0.13s cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+
+.hamburger--spring.is-active .hamburger-inner { transition-delay: .22s; background-color: transparent !important; }
+
+.hamburger--spring.is-active .hamburger-inner::before { top: 0; transition: top 0.1s cubic-bezier(0.33333, 0, 0.66667, 0.33333) 0.15s, transform 0.13s cubic-bezier(0.215, 0.61, 0.355, 1) 0.22s; transform: translate3d(0, 10px, 0) rotate(45deg); }
+
+.hamburger--spring.is-active .hamburger-inner::after { top: 0; transition: top 0.2s cubic-bezier(0.33333, 0, 0.66667, 0.33333), transform 0.13s cubic-bezier(0.215, 0.61, 0.355, 1) 0.22s; transform: translate3d(0, 10px, 0) rotate(-45deg); }
+
+.hamburger--spring-r .hamburger-inner { top: auto; bottom: 0; transition-delay: 0s; transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19); transition-duration: .13s; }
+
+.hamburger--spring-r .hamburger-inner::after { top: -20px; transition: top 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1) 0.2s, opacity 0s linear; }
+
+.hamburger--spring-r .hamburger-inner::before { transition: top 0.1s cubic-bezier(0.33333, 0.66667, 0.66667, 1) 0.2s, transform 0.13s cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+
+.hamburger--spring-r.is-active .hamburger-inner { transition-delay: .22s; transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); transform: translate3d(0, -10px, 0) rotate(-45deg); }
+
+.hamburger--spring-r.is-active .hamburger-inner::after { top: 0; transition: top 0.2s cubic-bezier(0.33333, 0, 0.66667, 0.33333), opacity 0s linear 0.22s; opacity: 0; }
+
+.hamburger--spring-r.is-active .hamburger-inner::before { top: 0; transition: top 0.1s cubic-bezier(0.33333, 0, 0.66667, 0.33333) 0.15s, transform 0.13s cubic-bezier(0.215, 0.61, 0.355, 1) 0.22s; transform: rotate(90deg); }
+
+@media (max-width: 991px) { .hamburger-open .header__hide { transform: none; }
+  .hamburger-open .nav-menu { opacity: 1; transition: ease all 0.5s; }
+  .hamburger-open .logo { opacity: 0; pointer-events: none; transition: ease all 0.3s; }
+  .hamburger-open li.mobile__menu--items, .hamburger-open header .nav-menu li { opacity: 1 !important; transform: translateY(0); transition: ease all 0.5s; --delay: 0.07s; }
+  .hamburger-open .nav-menu li:nth-child(1) { padding-bottom: 20px; transition-delay: calc(var(--delay) * 2); }
+  .hamburger-open .nav-menu li:nth-child(2) { transition-delay: calc(var(--delay) * 2.5); }
+  .hamburger-open .nav-menu li:nth-child(3) { transition-delay: calc(var(--delay) * 3); }
+  .hamburger-open .nav-menu li:nth-child(4) { transition-delay: calc(var(--delay) * 3.5); }
+  .hamburger-open .nav-menu li:nth-child(5) { transition-delay: calc(var(--delay) * 4); }
+  .hamburger-open .nav-menu li:nth-child(6) { transition-delay: calc(var(--delay) * 4.5); }
+  .hamburger-open .nav-menu li:nth-child(7) { transition-delay: calc(var(--delay) * 5); }
+  .hamburger-open .nav-menu li:nth-child(8) { transition-delay: calc(var(--delay) * 5.5); }
+  .hamburger-open .nav-menu li:nth-child(9) { transition-delay: calc(var(--delay) * 6); }
+  .nav-menu .global-search { opacity: 1; }
+  .nav-menu .global-search .searchBtn { height: 100%; }
+  .nav-menu .searchInput::-webkit-input-placeholder { color: rgba(0, 0, 0, 0.3) !important; }
+  .nav-menu .searchInput:-moz-placeholder { color: rgba(0, 0, 0, 0.3) !important; }
+  .nav-menu .searchInput::-moz-placeholder { color: rgba(0, 0, 0, 0.3) !important; }
+  .nav-menu .searchInput:-ms-input-placeholder { color: rgba(0, 0, 0, 0.3) !important; }
+  .nav-menu .searchInput::-ms-clear { display: none; }
+  .nav-menu .searchInput::-webkit-search-cancel-button { display: none; } }

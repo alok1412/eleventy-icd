@@ -1,0 +1,98 @@
+/* Global functions include */
+@import url("https://fonts.googleapis.com/css?family=Rock+Salt&display=swap");
+/* Global Fonts */
+/* Global Colors */
+.heroCarousel { position: relative; max-width: 100vw; overflow: hidden; /* Slider */ }
+
+.heroCarousel img { max-height: 95vh; object-fit: cover; width: 100%; }
+
+.heroCarousel .carouselShape__block { position: absolute; width: 100%; bottom: 0; z-index: 99; }
+
+.heroCarousel .carouselShape__block .carouselBlock__1, .heroCarousel .carouselShape__block .carouselBlock__2 { height: 85px; background: #ffffff; }
+
+.heroCarousel .carouselShape__block .carouselBlock__2 { margin-left: 75px; position: relative; }
+
+.heroCarousel .carouselShape__block .carouselBlock__2:after { content: ''; background: #ffffff; width: 100%; right: -100%; height: 100%; /* display: block; */ position: absolute; }
+
+.heroCarousel .carouselShape__block .carouselBlock__1::after { content: ''; position: absolute; right: -196px; width: 0; height: 0; border-top: 200px solid transparent; border-left: 196px solid #ffffff; }
+
+.heroCarousel .slick-prev, .heroCarousel .slick-next { top: 38%; z-index: 1; }
+
+.heroCarousel .sliderNumber { position: absolute; bottom: 50%; left: 35px; }
+
+.heroCarousel .sliderNumber .count { font-family: "Berthold Akzidenz Grotesk Bold", sans-serif; font-size: 20px; line-height: normal; letter-spacing: -0.8px; }
+
+.heroCarousel .heroText { position: absolute; display: block; bottom: 116px; margin: auto; right: 0; left: 0; max-width: 920px; font-family: "Berthold Akzidenz Grotesk Bold", sans-serif; font-size: 36px; line-height: normal; letter-spacing: -1px; color: #000000; }
+
+.heroCarousel .heroText .font__grey { letter-spacing: -0.7px; color: rgba(255, 255, 255, 0.5) !important; }
+
+.heroCarousel video { display: block; position: absolute; left: 50%; min-width: 100%; min-height: 100%; height: auto; object-fit: cover; top: 50%; transform: translate(-50%, -50%); cursor: pointer; z-index: 0; }
+
+.heroCarousel .lead-video-cont { position: relative; padding-bottom: 95vh; overflow: hidden; }
+
+@media (max-width: 767px) { .heroCarousel .lead-video-cont { padding-bottom: 90vh; } }
+
+.heroCarousel .homelead-thumbnail { background-repeat: no-repeat; background-size: cover; background-position: 50%; padding-bottom: inherit; left: 0; right: 0; }
+
+.heroCarousel .loading { font-family: "Berthold Akzidenz Grotesk Light", sans-serif; color: #000000; font-size: 20px; line-height: 30px; word-spacing: -0.05em; letter-spacing: -0.01em; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+
+.heroCarousel .loading::after { content: '.'; animation: dots 1s steps(5, end) infinite; }
+
+@keyframes dots { 0%, 20% { color: #ffffff;
+    text-shadow: 0.25em 0 0 #ffffff, 0.5em 0 0 #ffffff; }
+  40% { color: #000000;
+    text-shadow: 0.25em 0 0 #ffffff, 0.5em 0 0 #ffffff; }
+  60% { text-shadow: 0.25em 0 0 #000000, 0.5em 0 0 #ffffff; }
+  80%, 100% { text-shadow: 0.25em 0 0 #000000, 0.5em 0 0 #000000; } }
+
+.heroCarousel iframe { width: 100vw; min-height: 110vh; min-width: 198.77vh; position: absolute; top: 50%; left: 50%; pointer-events: none; transform: translate(-50%, -50%); }
+
+@media (min-width: 768px) and (max-width: 991px) { .heroCarousel iframe { min-height: 130vh; } }
+
+@media (max-width: 767px) { .heroCarousel iframe { min-height: 101vh; } }
+
+.heroCarousel .vjs-big-play-centered .vjs-big-play-button { top: 42% !important; }
+
+.heroCarousel .vjs-icon-play:before, .heroCarousel .video-js .vjs-big-play-button .vjs-icon-placeholder:before, .heroCarousel .video-js .vjs-play-control .vjs-icon-placeholder:before { content: "\F102" !important; }
+
+.heroCarousel .video-js .vjs-big-play-button { background: transparent !important; border: none !important; box-shadow: none !important; transition: ease all 0.4s; z-index: 1; font-size: 9em !important; pointer-events: none; }
+
+.heroCarousel .video-js { width: 100vw; height: 95vh; }
+
+.heroCarousel .vjs-paused.vjs-has-started .vjs-big-play-button { opacity: 1; transition: ease all 0.4s; display: block; }
+
+.heroCarousel .vjs-playing.vjs-has-started .vjs-big-play-button { opacity: 0; transition: ease all 0.4s; display: block; }
+
+.heroCarousel .carouselArrow { margin: auto; position: absolute; left: 0; right: 0; bottom: 156px; }
+
+.heroCarousel .slick-slider { position: relative; display: block; box-sizing: border-box; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-touch-callout: none; -khtml-user-select: none; -ms-touch-action: pan-y; touch-action: pan-y; -webkit-tap-highlight-color: transparent; }
+
+.heroCarousel .slick-list { position: relative; display: block; overflow: hidden; margin: 0; padding: 0; }
+
+.heroCarousel .slick-list:focus { outline: none; }
+
+.heroCarousel .slick-list.dragging { cursor: pointer; cursor: hand; }
+
+.heroCarousel .slick-arrow.slick-hidden { display: none; }
+
+.heroCarousel .slick-arrow { position: absolute; width: 18px; height: 30px; padding: 0; background-repeat: no-repeat; box-shadow: none; }
+
+.heroCarousel .slick-arrow:after { content: ""; left: 0; top: 0; position: absolute; }
+
+.heroCarousel .slick-arrow.slick-prev { z-index: 2; left: 80px; }
+
+.heroCarousel .slick-arrow.slick-prev:before { content: ""; }
+
+.heroCarousel .slick-arrow.slick-prev:after { content: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIyOSIgdmlld0JveD0iMCAwIDE4IDI5Ij4gICAgPHBhdGggZmlsbD0iIzAwMCIgZmlsbC1ydWxlPSJub256ZXJvIiBkPSJNLjEzNSAyNi42MzdsMi4wMSAyLjIyOCAxNS0xMy41MjgtLjAyNS0yLjI1TDIuMTIuMTQ0LjE2IDIuNDE2bDEzLjcxMyAxMS44MzJ6Ii8+PC9zdmc+); transform: rotate(180deg); }
+
+.heroCarousel .slick-arrow.slick-next { z-index: 1; right: 80px; }
+
+.heroCarousel .slick-arrow.slick-next:before { content: ""; }
+
+.heroCarousel .slick-arrow.slick-next:after { content: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIyOSIgdmlld0JveD0iMCAwIDE4IDI5Ij4gICAgPHBhdGggZmlsbD0iIzAwMCIgZmlsbC1ydWxlPSJub256ZXJvIiBkPSJNLjEzNSAyNi42MzdsMi4wMSAyLjIyOCAxNS0xMy41MjgtLjAyNS0yLjI1TDIuMTIuMTQ0LjE2IDIuNDE2bDEzLjcxMyAxMS44MzJ6Ii8+PC9zdmc+); }
+
+.heroCarousel .slick-arrow.slick-disabled { cursor: default; opacity: 0.5; }
+
+.heroCarousel #bgTrigger { position: absolute; bottom: 150px; }
+
+div.___snowStorm___ { overflow: visible !important; transform: scale(2) translate3d(0px, 0px, 0px) !important; }

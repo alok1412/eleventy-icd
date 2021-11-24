@@ -1,0 +1,86 @@
+/* Global functions include */
+@function rem-calc($size) {
+    $remSize: $size / 16;
+    @return #{$remSize}rem;
+}
+
+// rock salt font
+@import url('https://fonts.googleapis.com/css?family=Rock+Salt&display=swap');
+/* Global Fonts */
+
+// $bh-regular: 'Berthold Akzidenz Grotesk', sans-serif;
+// $bh-bold: 'Berthold Akzidenz Grotesk Bold', sans-serif;
+// $bh-light: 'Berthold Akzidenz Grotesk Light', sans-serif;
+$akz-regular: 'Berthold Akzidenz Grotesk', sans-serif;
+$akz-bold: 'Berthold Akzidenz Grotesk Bold', sans-serif;
+$akz-light: 'Berthold Akzidenz Grotesk Light', sans-serif;
+$tundra-light: 'TundraOT Light', sans-serif;
+$tundra-mediumitalic: 'TundraOT Medium Italic', sans-serif;
+
+/* Global Colors */
+
+$color-yellow: #FFE300;
+$color-grey: #a9a9a9;
+$color-white: #ffffff;
+$color-red: #ec1d24;
+$color-dark-red: #d8232a;
+// $color-light-black: #4A4A4A; 
+$color-light-black: #191919; // changed on 13feb20
+$color-black: #000000;
+$color-brown-grey: #9b9b9b;
+$color-ash : #cdcdcd;
+$color-gun-metal : #e1e1e1;
+$color-silver : #f3f3f3;
+$color-dark-black : #231f20;
+
+
+$color-grey-border : #979797;
+$border-color-gun-metal: rgba(225,225,225,0.9);
+$border-color-black: rgba(0, 0, 0, 0.3);
+
+$box-shadow: 0px 2px 12px 2px rgba(0,0,0,0.05);
+$overlaybg-color: rgba(31,31,31,0.5);
+
+
+@mixin for-phone-only {
+    @media (max-width: 767px) { @content; }
+}
+
+@mixin for-tablet-portrait-only {
+    @media (min-width: 768px) and (max-width: 991px) { @content; }
+}
+
+@mixin for-upto-tablet-portrait {
+    @media (max-width: 991px) { @content; }
+}
+
+@mixin for-upto-tablet-landscape {
+    @media (max-width: 1365px) { @content; }
+}
+
+@mixin for-low-end-laptop {
+    @media (min-width: 1366px) and (max-width: 1439px) { @content; }
+}
+
+@mixin for-tablet-horizontal-to-laptop {
+    @media (min-width: 992px) and (max-width: 1365px) { @content; }
+}
+
+@mixin for-tablet-to-laptop{
+    @media (min-width: 768px) and (max-width: 1365px) { @content; }
+}
+
+
+@mixin for-tablet-portrait-up {
+    @media (min-width: 992px) { @content; }
+}
+@mixin for-tablet-landscape-up {
+    @media (min-width: 1024px) { @content; }
+}
+@mixin for-desktop-up {
+    @media (min-width: 1280px) { @content; }
+}
+@mixin for-big-desktop-up {
+    @media (min-width: 1600px) { @content; }
+}
+

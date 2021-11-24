@@ -1,0 +1,28 @@
+<link rel="stylesheet" type="text/css" href="/static/css/modules/cards.module.css"/>
+{% assign i = data.featuredCards %}
+{% assign n = i | size | | minus: 1 %}
+
+<section class="home__section--cards">
+   <div class="container">
+      <div class="row">
+         {% for i in (0..n) %}
+               {% comment %} {{data.featuredCards[i].featuredImage.node.sourceUrl}} {% endcomment %}
+               {% assign cardImg = data.featuredCards[i].featuredImage.node.sourceUrl %}
+               {% if data.featuredCards[i].designOptions.darkBg %}
+                     {% assign bg = "cards__box background_grey" %}
+                  {% else %}
+                     {% assign bg = "cards__box background_yellow" %}
+               {% endif %}
+            <div class="col-lg-4 home-cards">
+               <div class="{{bg}}" style="background-image: url({{cardImg}});">
+                  <span class="card__tag">{{ data.featuredCards[i].cardCategories.edges[0].node.name }}</span>
+                  <span class="card__text">
+                     {{ data.featuredCards[i].content }}
+                  </span>
+                  <span class="card__link"><a href="/careers"><button>apply now</button></a></span>
+               </div>
+            </div>
+         {% endfor %}
+      </div>
+   </div>
+</section>

@@ -1,0 +1,100 @@
+---
+layout: "page"
+---
+
+
+
+
+
+{% for item in posts %}
+    {% if forloop.first == true %}
+        {% include partials/head with title: item.meta.title %}
+
+        <link rel="stylesheet" type="text/css" href="/static/css/modules/posts.module.css"/>
+        <link rel="stylesheet" type="text/css" href="/static/css/modules/category.module.css"/>
+
+        <section class="posts__page mT__260 page__header posts__page">
+            <div class="container page__header--container">
+                <div class="row">
+                <div class="col-12 col-md-4 page__header--title">
+                    <div class="back-cta"><span class="backBtn"></span><h1>{{ item.meta.title }}</h1></div>
+                </div>
+                <div class="col-12 col-md-8 page__header--nav bottom__align nav__subPage tags-menu category-names">
+                    <div class="filter_menu_cont">
+                        <a href="/posts" class="project__filter project__filter marginRight active">all</a>
+                            {% assign i = item.categoriesData %}
+                            {% assign n = item.categoriesData | size %}
+
+                            {% for i in (0..n) %}
+                                <a href="/posts" class="project__filter project__filter marginRight">{{ item.categoriesData[i].name }}</a>
+                            {% endfor %}
+
+                    </div>
+                    <div id="sb-search" class="sb_search">
+                        <input class="sb-search-input sb_search_input" placeholder="Type a term to search" type="search" name="post-search" id="postsearch" autoComplete="off"/>
+                        <span class="sb_icon_search magic_icon_search" onclick="postsearch()"></span>
+                    </div>
+                </div>
+                </div>
+                <span class="bottom__border"></span>
+            </div>
+        </section> 
+        <section>
+            <div class="container">
+                <div class="row infinite-grid">
+                {% assign i = posts %}
+                {% assign n = posts | size | | minus: 1 %}
+                    {% for i in (0..n) %}
+                        <div class="col-md-6 col-lg-6 grid-item">
+                            <div class="postsItems animateItems">
+                                <a href="/posts/{{posts[i].slug}}">
+                                    <div class="postLeadImage">
+                                        <div class="images-loaded-container">
+                                        <span class="postThumbnail fade-in">
+                                                {% assign project_thumbnail = posts[i].featuredImage %}
+                                                {% if project_thumbnail %}
+                                                    {% responsiveimage project_thumbnail "postt-lead" %}
+                                                {% endif %}       
+                                        </span>
+                                        </div>
+                                        <span class="postCategory">{{ posts[i].categories }}</span>
+                                    </div>
+                                </a>
+                                <a href="/posts/{{posts[i].slug}}">
+                                    <h2 class="postTitle">{{posts[i].title}}</h2>
+                                    <span class="postBy"> {{ posts[i].date | date: "%d %B %Y" }} </span>
+                                    <p class="postInfo"> {{posts[i].excerpt}} </p>
+                                    <div class="d-none"><span>{{ posts[i].categories }}</span>{postsTags}</div>
+                                </a>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <a href="/posts/{{posts[i].slug}}">
+                                            <button>keep reading</button>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 text-right">
+                                        <span class="like-btn icon">
+                                        <div class="like-icon"><img loading="lazy" decoding="async" src="/static/assets/images/like-btn/like.svg" width="20" height="16" class="icon-img icon-outline"></div>
+                                        2
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+  {% endif %}
+{% endfor %}
+
+<script>
+    function postsearch(){
+        $('.posts__page').toggleClass('post_search__open');
+        if($('.posts__page').hasClass('post_search__open')){
+          $('.sb-search-input').focus();
+        } else {
+          $('.sb-search-input').val('');
+        }
+    }
+</script>

@@ -1,0 +1,29 @@
+/* Global functions include */
+@import url("https://fonts.googleapis.com/css?family=Rock+Salt&display=swap");
+/* Global Fonts */
+/* Global Colors */
+.textContent { margin: 0 0 100px; padding: 0 50px; }
+
+@media (max-width: 991px) { .textContent { margin-bottom: 60px; margin: 0px !important; padding: 0; } }
+
+.textContent a { color: #a9a9a9; }
+
+.textContent p { font-family: 'TundraOT Light'; font-weight: 300; letter-spacing: -0.75px; display: block; margin-bottom: 30px; color: #a9a9a9 !important; font-size: 42px; line-height: 56px; word-spacing: 1.5px; }
+
+@media (min-width: 992px) and (max-width: 1365px) { .textContent p { font-size: 40px; line-height: 54px; margin-bottom: 15px; } }
+
+@media (max-width: 991px) { .textContent p { font-size: 26px; line-height: 36px; margin-bottom: 36px; letter-spacing: -0.7px; } }
+
+.textContent p em { color: #ec1d24; font-style: inherit; }
+
+.textContent .defaultText p { font-family: "Berthold Akzidenz Grotesk Bold", sans-serif; font-size: 24px; font-style: normal; font-stretch: normal; line-height: normal; letter-spacing: -0.5px; color: #000000; margin-bottom: 0px; }
+
+@media (max-width: 991px) { .textContent .defaultText p { font-size: 18px; letter-spacing: -0.2px; line-height: 1; } }
+
+.textContent .defaultText em { letter-spacing: -1px; color: #a9a9a9; font-style: normal; }
+
+.homeLeadText { margin: 130px 0 150px 0; }
+
+@media (min-width: 992px) and (max-width: 1365px) { .homeLeadText { margin: 130px 0; } }
+
+.blackText .homeText p, .blackText .homeText em { color: #000000; }

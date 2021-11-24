@@ -1,0 +1,187 @@
+@import "../variables.scss";
+.projectlead{
+    font-family: $akz-bold;
+    margin-bottom: 150px;
+
+        @include for-tablet-horizontal-to-laptop {
+            margin-bottom: 120px;
+        }
+        @include for-upto-tablet-portrait {
+            margin-bottom: 80px;
+        }
+        @include for-tablet-portrait-only{
+            margin-bottom: 75px;
+        }
+    video{
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50% , -50%);
+    }
+    .project__name{
+        font-size: 24px;
+        line-height: 1;
+        letter-spacing: -1.02px;
+        color: $color-black;
+        margin-top: 20px;
+        text-transform: lowercase;
+        line-height: 30px;
+
+        @include for-upto-tablet-portrait{
+            font-size: 18px;
+            line-height: 22px;
+            letter-spacing: -0.7px;
+            margin-top: 10px;
+        }
+    }
+    .project__type{
+        text-transform: lowercase;
+    }
+
+    
+    .project__section {
+        position: relative;
+        // padding-top: 35.56%;  // 1440 x 512 
+        padding-top: 35.56%;  // 1920 x 683
+        height: 0;
+        width: 100%;
+        position: relative;
+
+        .Tilt {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0px;
+            outline: 1px solid transparent;
+            -webkit-backface-visibility: hidden;
+            will-change: transform;
+        }
+        
+        @include for-upto-tablet-portrait {
+                height: 0;
+                padding-top: 74.93%;
+                width: 100%;
+            }
+
+        .video_container {
+            position: relative;
+            // padding-bottom: 56.25%;
+            // padding-top: 30px;
+            height: 0;
+            overflow: hidden;
+            background: #efefef;
+    
+            &.leadImage {
+                padding-bottom: 40.3% !important;
+            }
+        }
+        .video_container iframe,
+        .video_container object,
+        .video_container embed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            border: none;
+        }
+
+        img{
+            width: 100%;
+            object-fit: cover;
+            height: auto;
+            transition-duration: 3s;
+
+            &.img-mobile {
+                display: none;
+                @include for-upto-tablet-portrait {
+                    display: block;
+                }
+            }
+
+            &.img-desktop {
+                display: block;
+                @include for-upto-tablet-portrait {
+                    display: none;
+                }
+            }
+
+        }
+        img:hover{
+            // -webkit-transform: scale(1.1);
+            // transform: scale(1.1);
+            // -webkit-transform-origin: 50% 50%;
+            // transform-origin: 50% 50%;
+            // transition-duration: 3s;
+        }
+        .project__leadimage{
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: transparent;            
+            &.video_container {
+                height: 0;
+                padding-bottom: 35.57%;
+                // padding-bottom: 34.07%;
+                width: 100%;
+                position: relative;
+                @include for-tablet-horizontal-to-laptop {
+                    // padding-bottom: 33.00%;
+                }
+
+            }
+
+            
+            img {
+                @include for-upto-tablet-portrait {
+                    height: auto;
+                }
+
+            }
+        }
+        .project__tag{
+            left: -25px;
+            height: 28px;
+            &:before{
+              top: 3px;
+            }
+        }
+
+        .project__tag.new_tag{
+            color: $color-black;
+            background: $color-yellow;
+            &:after{
+                border-top: 28px solid $color-yellow;
+            }
+            &:before{
+                border-bottom: 25px solid $color-yellow;
+            }
+        }
+
+
+    } 
+}
+
+
+
+
+// animation test
+
+.project__leadimage .img-desktop {
+    -webkit-transition: all 0.3s ease-in !important;
+    transition: all 0.3s ease-in !important;
+}
+
+.project__leadimage:hover .img-desktop {
+    transform: scale(1.01);
+}
+
+
+.project__leadimage:hover {
+    cursor: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNSIgaGVpZ2h0PSI0NiIgdmlld0JveD0iMCAwIDI1IDQ2Ij4gIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTE1IC01KSI+ICAgIDxyZWN0IHdpZHRoPSI1NiIgaGVpZ2h0PSI1NiIvPiAgICA8cG9seWxpbmUgc3Ryb2tlPSIjRkZGIiBzdHJva2UtbGluZWNhcD0ic3F1YXJlIiBzdHJva2UtbGluZWpvaW49ImJldmVsIiBzdHJva2Utd2lkdGg9IjMuNSIgcG9pbnRzPSIxOC4yIDguNCAzOC41IDI4LjIwNCAxOC4yIDQ3LjYiLz4gIDwvZz48L3N2Zz4=) 25 26 , auto;
+}

@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+   
+
+
+    
+
+
+
+
+
+    
+        
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="/static/assets/images/logo/favicon.ico" />
+    <title>
+      posts
+    </title>
+    <link rel="preload" href="/static/sass/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/sass/bootstrap.min.css">
+    
+    <script src="/static/script/bootstrap.min.js"></script>
+    <style>
+        @font-face {
+            font-family: 'TundraOT Medium Italic';
+            // src: url('/static/assets/fonts/tundra/TundraOT-MediumItalic.woff');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+            unicode-range: U+000-5FF; /* Download only latin glyphs */  
+            src: local('TundraOT Medium Italic'),url('../assets/fonts/tundra/TundraOT-MediumItalic.woff') format('woff');
+            }
+
+            @font-face {
+            font-family: 'Berthold Akzidenz Grotesk Bold';
+            src: url("/static/assets/fonts/berthold/berthold-bold.eot"); /* IE9 Compat Modes */
+            src: url("/static/assets/fonts/berthold/berthold-bold.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+                url("/static/assets/fonts/berthold/berthold-bold.otf") format("opentype"), /* Open Type Font */
+                url("/static/assets/fonts/berthold/berthold-bold.ttf") format("truetype"), /* Safari, Android, iOS */
+                url("/static/assets/fonts/berthold/berthold-bold.woff") format("woff"), /* Modern Browsers */
+                url("/static/assets/fonts/berthold/berthold-bold.woff2") format("woff2"); /* Modern Browsers */
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+            }
+
+            @font-face {
+            font-family: "Berthold Akzidenz Grotesk Light";
+            src: url("/static/assets/fonts/berthold/berthold-light.eot"); /* IE9 Compat Modes */
+            src: url("/static/assets/fonts/berthold/berthold-light.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+                url("/static/assets/fonts/berthold/berthold-light.otf") format("opentype"), /* Open Type Font */
+                url("/static/assets/fonts/berthold/berthold-light.ttf") format("truetype"), /* Safari, Android, iOS */
+                url("/static/assets/fonts/berthold/berthold-light.woff") format("woff"), /* Modern Browsers */
+                url("/static/assets/fonts/berthold/berthold-light.woff2") format("woff2"); /* Modern Browsers */
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+            }
+
+            @font-face {
+            font-family: "Berthold Akzidenz Grotesk";
+            src: url("/static/assets/fonts/berthold/berthold-regular.eot"); /* IE9 Compat Modes */
+            src: url("/static/assets/fonts/berthold/berthold-regular.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+                url("/static/assets/fonts/berthold/berthold-regular.otf") format("opentype"), /* Open Type Font */
+                url("/static/assets/fonts/berthold/berthold-regular.ttf") format("truetype"), /* Safari, Android, iOS */
+                url("/static/assets/fonts/berthold/berthold-regular.woff") format("woff"), /* Modern Browsers */
+                url("/static/assets/fonts/berthold/berthold-regular.woff2") format("woff2"); /* Modern Browsers */
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+            }
+
+            @font-face {
+            font-family: "TundraOT Light";
+            src: url("/static/assets/fonts/tundra/TundraOT-Light.eot"); /* IE9 Compat Modes */
+            src: url("/static/assets/fonts/tundra/TundraOT-Light.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+                url("/static/assets/fonts/tundra/TundraOT-Light.otf") format("opentype"), /* Open Type Font */
+                url("/static/assets/fonts/tundra/TundraOT-Light.ttf") format("truetype"), /* Safari, Android, iOS */
+                url("/static/assets/fonts/tundra/TundraOT-Light.woff") format("woff"), /* Modern Browsers */
+                url("/static/assets/fonts/tundra/TundraOT-Light.woff2") format("woff2"); /* Modern Browsers */
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+            }
+    </style>
+    <link rel="stylesheet" type="text/css" href="/static/css/globals.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/modules/header.css"/>
+</head>
+<header id="header">
+    <div class="menu-cont">
+        <span class="yellowLine">
+            <span class="loader"></span>
+        </span>
+        <div class="container">
+            <div class="row">
+                <div class="col-10 col-md-2 logo-container">
+                    <a href="/" aria-label="logo" class="logo d-none d-lg-block">
+                        <img decoding="async" width="172" height="43" src="/static/assets/logo/icd-logo.9e81fca5.svg" class="logo d-none d-lg-block" alt="icd-logo" />
+                    </a>
+                    <a href="/" aria-label="logo" class="logo d-block d-lg-none">
+                        <img decoding="async" src="/static/assets/logo/mobile-logo-new.png" width="48" height="36"  class="logo d-block d-lg-none" alt="icd-logo" />
+                    </a>
+                </div>
+                <div class="col-2 col-md-10">
+                    <div class="d-block d-lg-none">
+
+                        <div class="hamburger hamburger--spring js-hamburger" onclick="hamburgerToggle()">
+                            <div class="hamburger-box">
+                                <div class="hamburger-inner"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="nav-menu">
+                        <div class="container">
+                            <div class="row">
+                                <ul>
+                                    <li class="mobile__menu--items" onclick="hamburgerClose()"><a href="/">home</a></li>
+                                    <li onclick="hamburgerClose()" ><a href="/projects">projects</a></li>
+                                    <li onclick="hamburgerClose()" ><a href="/clients">clients</a></li>
+                                    <li onclick="hamburgerClose()" ><a href="/services">services</a></li>
+                                    <li onclick="hamburgerClose()" ><a href="/posts">posts</a></li>
+                                    <li onclick="hamburgerClose()" ><a href="/contact">contact</a></li>
+                                    <li onclick="hamburgerClose()" class="mobile__menu--items"><a href="/our-team">team</a></li>
+                                    <li onclick="hamburgerClose()" class="mobile__menu--items"><a href="/careers">careers</a></li>
+                                    <li onclick="hamburgerClose()" class="copyright">© 1990-2019 itu chaudhuri design pvt ltd | all rights reserved. please note — no images or content from site can be reproduced without prior written consent from icd</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+                  
+
+    <div id="close">
+        <span class="close-wrap" onClick={this.searchToggle}>
+            <span class="close-line close-line1"></span>
+            <span class="close-line close-line2"></span>
+        </span>
+    </div>
+</header>
+
+<script>
+    function hamburgerToggle() {
+        $('body').toggleClass('hamburger-open');
+        $('.hamburger, .nav-menu').toggleClass("is-active");
+    }
+
+    function hamburgerClose() {
+        $('body').removeClass('hamburger-open');
+        $('.hamburger, .nav-menu').removeClass("is-active");
+    }
+    
+</script>
+
+        <link rel="stylesheet" type="text/css" href="/static/css/modules/posts.module.css"/>
+        <link rel="stylesheet" type="text/css" href="/static/css/modules/category.module.css"/>
+
+        <section class="posts__page mT__260 page__header posts__page">
+            <div class="container page__header--container">
+                <div class="row">
+                <div class="col-12 col-md-4 page__header--title">
+                    <div class="back-cta"><span class="backBtn"></span><h1>posts</h1></div>
+                </div>
+                <div class="col-12 col-md-8 page__header--nav bottom__align nav__subPage tags-menu category-names">
+                    <div class="filter_menu_cont">
+                        <a href="/posts" class="project__filter project__filter marginRight active">all</a>
+                            
+                            
+
+                            
+                                <a href="/posts" class="project__filter project__filter marginRight">deep design</a>
+                            
+                                <a href="/posts" class="project__filter project__filter marginRight">studio diaries</a>
+                            
+                                <a href="/posts" class="project__filter project__filter marginRight">inside stories</a>
+                            
+                                <a href="/posts" class="project__filter project__filter marginRight">featured</a>
+                            
+                                <a href="/posts" class="project__filter project__filter marginRight"></a>
+                            
+
+                    </div>
+                    <div id="sb-search" class="sb_search">
+                        <input class="sb-search-input sb_search_input" placeholder="Type a term to search" type="search" name="post-search" id="postsearch" autoComplete="off"/>
+                        <span class="sb_icon_search magic_icon_search" onclick="postsearch()"></span>
+                    </div>
+                </div>
+                </div>
+                <span class="bottom__border"></span>
+            </div>
+        </section> 
+        <section>
+            <div class="container">
+                <div class="row infinite-grid">
+                
+                
+                    
+                        <div class="col-md-6 col-lg-6 grid-item">
+                            <div class="postsItems animateItems">
+                                <a href="/posts/sunstone-eduversity-redefining-management-education-in-india">
+                                    <div class="postLeadImage">
+                                        <div class="images-loaded-container">
+                                        <span class="postThumbnail fade-in">
+                                                
+                                                
+                                                    <picture>
+        <source type="image/webp" srcset="/static/img-tmp/9a17d723-1920.webp 1920w, /static/img-tmp/9a17d723-1920.webp 1920w" sizes="100vw">
+        <img
+          src="/static/img-tmp/9a17d723-1920.webp"
+          width="1920"
+          height="1080"
+          alt="postt-lead"
+          loading="lazy"
+          decoding="async">
+      </picture>
+                                                       
+                                        </span>
+                                        </div>
+                                        <span class="postCategory">inside stories</span>
+                                    </div>
+                                </a>
+                                <a href="/posts/sunstone-eduversity-redefining-management-education-in-india">
+                                    <h2 class="postTitle">sunstone eduversity: redefining management education in india</h2>
+                                    <span class="postBy"> 11 November 2021 </span>
+                                    <p class="postInfo">  </p>
+                                    <div class="d-none"><span>inside stories</span>{postsTags}</div>
+                                </a>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <a href="/posts/sunstone-eduversity-redefining-management-education-in-india">
+                                            <button>keep reading</button>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 text-right">
+                                        <span class="like-btn icon">
+                                        <div class="like-icon"><img loading="lazy" decoding="async" src="/static/assets/images/like-btn/like.svg" width="20" height="16" class="icon-img icon-outline"></div>
+                                        2
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="col-md-6 col-lg-6 grid-item">
+                            <div class="postsItems animateItems">
+                                <a href="/posts/a-complete-guide-to-incremental-static-regeneration-isr-with-next-js">
+                                    <div class="postLeadImage">
+                                        <div class="images-loaded-container">
+                                        <span class="postThumbnail fade-in">
+                                                
+                                                       
+                                        </span>
+                                        </div>
+                                        <span class="postCategory">studio diaries</span>
+                                    </div>
+                                </a>
+                                <a href="/posts/a-complete-guide-to-incremental-static-regeneration-isr-with-next-js">
+                                    <h2 class="postTitle">A Complete Guide To Incremental Static Regeneration (ISR) With Next.js</h2>
+                                    <span class="postBy"> 30 September 2021 </span>
+                                    <p class="postInfo">  </p>
+                                    <div class="d-none"><span>studio diaries</span>{postsTags}</div>
+                                </a>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <a href="/posts/a-complete-guide-to-incremental-static-regeneration-isr-with-next-js">
+                                            <button>keep reading</button>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 text-right">
+                                        <span class="like-btn icon">
+                                        <div class="like-icon"><img loading="lazy" decoding="async" src="/static/assets/images/like-btn/like.svg" width="20" height="16" class="icon-img icon-outline"></div>
+                                        2
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="col-md-6 col-lg-6 grid-item">
+                            <div class="postsItems animateItems">
+                                <a href="/posts/multi-clients-project">
+                                    <div class="postLeadImage">
+                                        <div class="images-loaded-container">
+                                        <span class="postThumbnail fade-in">
+                                                
+                                                       
+                                        </span>
+                                        </div>
+                                        <span class="postCategory">deep design</span>
+                                    </div>
+                                </a>
+                                <a href="/posts/multi-clients-project">
+                                    <h2 class="postTitle">Multi clients project</h2>
+                                    <span class="postBy"> 30 September 2021 </span>
+                                    <p class="postInfo">  </p>
+                                    <div class="d-none"><span>deep design</span>{postsTags}</div>
+                                </a>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <a href="/posts/multi-clients-project">
+                                            <button>keep reading</button>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 text-right">
+                                        <span class="like-btn icon">
+                                        <div class="like-icon"><img loading="lazy" decoding="async" src="/static/assets/images/like-btn/like.svg" width="20" height="16" class="icon-img icon-outline"></div>
+                                        2
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="col-md-6 col-lg-6 grid-item">
+                            <div class="postsItems animateItems">
+                                <a href="/posts/dynamic-new-post">
+                                    <div class="postLeadImage">
+                                        <div class="images-loaded-container">
+                                        <span class="postThumbnail fade-in">
+                                                
+                                                       
+                                        </span>
+                                        </div>
+                                        <span class="postCategory">deep design</span>
+                                    </div>
+                                </a>
+                                <a href="/posts/dynamic-new-post">
+                                    <h2 class="postTitle">new dynamic posts</h2>
+                                    <span class="postBy"> 13 September 2021 </span>
+                                    <p class="postInfo">  </p>
+                                    <div class="d-none"><span>deep design</span>{postsTags}</div>
+                                </a>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <a href="/posts/dynamic-new-post">
+                                            <button>keep reading</button>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 text-right">
+                                        <span class="like-btn icon">
+                                        <div class="like-icon"><img loading="lazy" decoding="async" src="/static/assets/images/like-btn/like.svg" width="20" height="16" class="icon-img icon-outline"></div>
+                                        2
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="col-md-6 col-lg-6 grid-item">
+                            <div class="postsItems animateItems">
+                                <a href="/posts/testing-latest-post">
+                                    <div class="postLeadImage">
+                                        <div class="images-loaded-container">
+                                        <span class="postThumbnail fade-in">
+                                                
+                                                       
+                                        </span>
+                                        </div>
+                                        <span class="postCategory">inside stories</span>
+                                    </div>
+                                </a>
+                                <a href="/posts/testing-latest-post">
+                                    <h2 class="postTitle">testing latest post</h2>
+                                    <span class="postBy"> 13 September 2021 </span>
+                                    <p class="postInfo">  </p>
+                                    <div class="d-none"><span>inside stories</span>{postsTags}</div>
+                                </a>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <a href="/posts/testing-latest-post">
+                                            <button>keep reading</button>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 text-right">
+                                        <span class="like-btn icon">
+                                        <div class="like-icon"><img loading="lazy" decoding="async" src="/static/assets/images/like-btn/like.svg" width="20" height="16" class="icon-img icon-outline"></div>
+                                        2
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="col-md-6 col-lg-6 grid-item">
+                            <div class="postsItems animateItems">
+                                <a href="/posts/my-latest-post">
+                                    <div class="postLeadImage">
+                                        <div class="images-loaded-container">
+                                        <span class="postThumbnail fade-in">
+                                                
+                                                       
+                                        </span>
+                                        </div>
+                                        <span class="postCategory">studio diaries</span>
+                                    </div>
+                                </a>
+                                <a href="/posts/my-latest-post">
+                                    <h2 class="postTitle">My latest post</h2>
+                                    <span class="postBy"> 13 September 2021 </span>
+                                    <p class="postInfo">  </p>
+                                    <div class="d-none"><span>studio diaries</span>{postsTags}</div>
+                                </a>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <a href="/posts/my-latest-post">
+                                            <button>keep reading</button>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 text-right">
+                                        <span class="like-btn icon">
+                                        <div class="like-icon"><img loading="lazy" decoding="async" src="/static/assets/images/like-btn/like.svg" width="20" height="16" class="icon-img icon-outline"></div>
+                                        2
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="col-md-6 col-lg-6 grid-item">
+                            <div class="postsItems animateItems">
+                                <a href="/posts/alchemlife-website-the-power-of-plants">
+                                    <div class="postLeadImage">
+                                        <div class="images-loaded-container">
+                                        <span class="postThumbnail fade-in">
+                                                
+                                                
+                                                    <picture>
+        <source type="image/webp" srcset="/static/img-tmp/a606f9e3-1920.webp 1920w, /static/img-tmp/a606f9e3-1920.webp 1920w" sizes="100vw">
+        <img
+          src="/static/img-tmp/a606f9e3-1920.webp"
+          width="1920"
+          height="1080"
+          alt="postt-lead"
+          loading="lazy"
+          decoding="async">
+      </picture>
+                                                       
+                                        </span>
+                                        </div>
+                                        <span class="postCategory">studio diaries</span>
+                                    </div>
+                                </a>
+                                <a href="/posts/alchemlife-website-the-power-of-plants">
+                                    <h2 class="postTitle">alchemlife website: the power of plants</h2>
+                                    <span class="postBy"> 19 August 2021 </span>
+                                    <p class="postInfo">  </p>
+                                    <div class="d-none"><span>studio diaries</span>{postsTags}</div>
+                                </a>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <a href="/posts/alchemlife-website-the-power-of-plants">
+                                            <button>keep reading</button>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 text-right">
+                                        <span class="like-btn icon">
+                                        <div class="like-icon"><img loading="lazy" decoding="async" src="/static/assets/images/like-btn/like.svg" width="20" height="16" class="icon-img icon-outline"></div>
+                                        2
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </section>
+  
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+<script>
+    function postsearch(){
+        $('.posts__page').toggleClass('post_search__open');
+        if($('.posts__page').hasClass('post_search__open')){
+          $('.sb-search-input').focus();
+        } else {
+          $('.sb-search-input').val('');
+        }
+    }
+</script>
+
+    
+
+
+    
+
+  </body>
+</html>

@@ -1,0 +1,43 @@
+/* Global functions include */
+@import url("https://fonts.googleapis.com/css?family=Rock+Salt&display=swap");
+/* Global Fonts */
+/* Global Colors */
+.cards__box { font-family: "Berthold Akzidenz Grotesk Bold", sans-serif; background-color: #ffffff; background-size: 100%; position: relative; height: 0; width: 100%; padding-top: 74.95%; padding-top: 66.81%; }
+
+@media (max-width: 991px) { .cards__box { margin: 0px 0 60px 0; } }
+
+.cards__box .card__text { display: block; position: absolute; top: 22%; }
+
+@media (min-width: 992px) and (max-width: 1365px) { .cards__box .card__text { padding: 0 9% 0 0; } }
+
+@media (max-width: 991px) { .cards__box .card__text { top: 28.3%; left: 20px; } }
+
+.cards__box .card__text p { font-family: "Berthold Akzidenz Grotesk Bold", sans-serif; letter-spacing: -1.5px; color: #000000; margin-bottom: 38px; text-transform: lowercase; margin-bottom: 0; font-size: 30px; line-height: 32px; }
+
+@media (min-width: 992px) and (max-width: 1365px) { .cards__box .card__text p { font-size: 1.45rem; line-height: 1; } }
+
+@media (max-width: 991px) { .cards__box .card__text p { font-size: 24px; line-height: 26px; } }
+
+.cards__box .card__link { line-height: 1; display: block; margin-top: 40px; margin: 0; position: absolute; bottom: 12%; }
+
+@media (max-width: 991px) { .cards__box .card__link { top: 72.4%; } }
+
+.cards__box .card__link a { font-size: 14px; line-height: 1; letter-spacing: normal; color: #ec1d24; }
+
+.cards__box .card__tag { padding: 17px 16px; background: #FFE300; position: absolute; top: 0; font-size: 16px; font-weight: bold; line-height: 1; color: #000000; text-transform: lowercase; }
+
+@media (min-width: 992px) and (max-width: 1365px) { .cards__box .card__tag { padding: 11px 16px; } }
+
+.cards__box .card__link, .cards__box .card__tag, .cards__box .card__text { left: 9%; }
+
+@media (max-width: 991px) { .cards__box .card__link, .cards__box .card__tag, .cards__box .card__text { left: 20px; } }
+
+.background_grey { background-size: 100%; }
+
+.background_grey .card__text p { color: #ffffff; }
+
+.background_grey .card__link button { color: #ffffff; border-color: #ffffff; }
+
+.background_yellow { background-size: 100%; background-color: #FFE300; }
+
+.background_yellow .card__tag { background: #ffffff; }

@@ -1,0 +1,138 @@
+@import "../variables.scss";
+// $assetPath : "../../assets/images";
+.cards__box{
+    // height: 312px;
+    // padding: 70px 20px 40px 48px;
+    font-family: $akz-bold;
+    // background: url(#{$assetPath}/home/type-writer.jpg) no-repeat;
+    background-color: $color-white;
+    background-size: 100%;
+    // background-size: cover;
+    position: relative;
+
+    // fluid height
+    height: 0;
+    width: 100%;
+    padding-top: 74.95%;
+    padding-top: 66.81%;
+
+    @include for-upto-tablet-portrait {
+        margin: 0px 0 60px 0;
+    }
+    .card__text{
+        display: block;
+
+        // fluid height
+        position: absolute;
+        top: 22%;
+
+        @include for-tablet-horizontal-to-laptop {
+            padding: 0 9% 0 0;
+        }
+
+        @include for-upto-tablet-portrait {
+            top: 28.3%;
+            left: 20px;
+        }
+        p{
+            font-family: $akz-bold;
+            // font-size: rem-calc(36);
+            // line-height: 1.06;
+            letter-spacing: -1.5px;
+            color: $color-black;
+            margin-bottom: 38px;
+            text-transform: lowercase;
+            margin-bottom: 0;
+
+
+            font-size: 30px;
+            line-height: 32px;
+
+            @include for-tablet-horizontal-to-laptop {
+                font-size: 1.45rem;
+                line-height: 1;
+            }
+    
+            @include for-upto-tablet-portrait {
+                font-size: 24px;
+                line-height: 26px;
+            }        
+        }        
+    }
+    .card__link{
+        line-height: 1;
+        display: block;
+        margin-top: 40px;
+
+        // fluid height
+        margin: 0;
+        position: absolute;
+        bottom: 12%;
+
+        @include for-upto-tablet-portrait {
+            top: 72.4%;
+        }
+
+        a{
+            font-size: 14px;
+            line-height: 1;
+            letter-spacing: normal;
+            color: $color-red;
+        }
+    }
+    .card__tag{
+        padding: 17px 16px;
+        background: $color-yellow;
+        position: absolute;
+        top: 0;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 1;
+        color: $color-black;  
+        text-transform: lowercase;
+        @include for-tablet-horizontal-to-laptop {
+            padding: 11px 16px;
+        }
+
+    }
+
+    .card__link, .card__tag, .card__text {
+        left: 9%;
+        @include for-upto-tablet-portrait {
+            left: 20px;
+        }
+    }
+}
+
+.background_white{
+    // box-shadow: inset 0px 0px 0px 2px $border-color-gun-metal;
+}
+
+.background_grey{
+    // background: url(#{$assetPath}/home/poloroid-camera.jpg) no-repeat;
+    background-size: 100%;
+    // background-size: cover;
+    // background-color: #4a4a4a;
+    .card__text{
+        p{
+            color: $color-white;
+        }
+    }
+    .card__link{
+        button{
+            color: $color-white;
+            border-color: $color-white;
+        }
+    }
+}
+
+.background_yellow{
+    // background: url(#{$assetPath}/home/chair.jpg) no-repeat;
+    background-size: 100%;
+    // background-size: cover;
+    background-color: $color-yellow;
+    .card__tag{
+        background: $color-white;
+    }
+    
+}

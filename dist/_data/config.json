@@ -1,0 +1,14 @@
+{
+    "imgSource": [
+        "http://look-for-images-embedded-in-posts-at-this-address.com",
+        "https://also-look-for-this-url-too.com"
+    ],
+    "graphqlUrl": "https://digital.icdindia.com/graphql",
+    "urlRewriterUrls": [
+        "https://your-wordpress-installatuon.net/",
+        "http://aliases-for-your-wordpress-installation/"
+    ],
+    "useCache": false,
+    "useMatomo": false,
+    "ignoreEmbeddedImages": true
+}

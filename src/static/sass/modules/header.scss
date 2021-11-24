@@ -1,0 +1,405 @@
+@import "../variables.scss";
+header {
+    position: fixed;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 5000;
+    pointer-events: none;
+    // -webkit-transform:translate3d(0,0,0);
+    // will-change: transform;
+    .menu-cont{
+        transform: translateZ(0);
+        will-change: transform;
+        transition: 0.3s ease all;
+        pointer-events: all;
+    }
+
+    .header__hide {
+        transform: translateY(-100%);
+    }
+    
+    .yellowLine {
+        position: relative;
+        display: block;
+        height: 12px;
+        background: $color-yellow;
+        .loader{
+            position: absolute;
+            background: url(/static/assets/loader/loader.gif) repeat-x;
+            width: 100%;
+            height: 100%;
+            display: block;
+            right: 0;
+        }
+
+        .hideLoader{
+            width: 0;
+            transition: width 5s ease-out;
+        }
+    }
+    .nav-menu{
+    
+        @include for-tablet-portrait-up {
+            .container {
+                padding: 0;
+            }
+        }
+
+        ul {
+            margin: 0;
+            padding: 0 16px;
+            width: 100%;
+        }
+
+        @include for-phone-only {
+            ul {
+                padding: 0px;
+            }
+        }
+
+
+        @include for-upto-tablet-portrait {
+            position: fixed;
+            transform: translateX(100vw);
+            left: 100%;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow-y: scroll;
+            background: $color-yellow;
+            opacity: 0;
+            padding: 80px 16px 0;
+            text-align: left;
+            z-index: -1;
+            transition: ease all 0.5s;
+        }
+
+        &.is-active {
+            @include for-upto-tablet-portrait {
+                transform: translateX(-100vw);
+                transition: ease all 0.5s;
+            }
+
+        }
+
+        li {
+            display: inline-block;
+            padding: 30px 25px;
+            @include for-upto-tablet-portrait {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            &.mobile__menu--items {
+                display: none;
+                // opacity: 0;
+            }
+
+            &.copyright {
+                display: none;
+
+                @include for-upto-tablet-portrait {
+                    display: block;
+                    // position: absolute;
+                    // bottom: 15%;
+                    font-family: $akz-light;
+                    font-size: 10px;
+                    letter-spacing: 0;
+                    line-height: 11px;
+                    color: $color-black;
+                    width: 100%;
+                    margin: 0;
+                    left: 0;
+                    // padding: 0 16px !important;
+                    padding: 12.5px 0 0 0 !important;
+                }
+            }
+
+            @include for-upto-tablet-portrait {
+                display: block;
+                padding: 0;
+                a{
+                    display: block;
+                    padding: 12.5px 0;
+                }
+                &.mobile__menu--items {
+                    display: block;
+                }
+            }
+
+
+            a {
+                color: $color-light-black;	
+                font-family: $akz-bold;	
+                font-size: 20px;
+                // font-size: 24px;	
+                // font-weight: bold;	
+                letter-spacing: -0.3px;	
+                line-height: 28px;
+                position: relative;
+
+                @include for-upto-tablet-portrait {
+                    color: $color-black;
+                    line-height: 32px;
+                }
+            }
+            a.active::after {
+                content: '';
+                height: 6px;
+                width: 100%;
+                background: $color-yellow;
+                position: absolute;
+                bottom: -17px;
+                left: 0;
+                @include for-upto-tablet-portrait{
+                    content: none;
+                }
+            }
+            &:last-child{
+                padding-right: 0;
+            }
+        }
+        padding-inline-start: 0;
+        text-align: right;
+        margin: 0;
+        .search-icon{
+            float: right;
+            padding: 33px 0px 0 25px;
+
+            @include for-upto-tablet-portrait {
+                position: absolute;
+                top: 40px;
+                right: 25px;
+                z-index: 9999;
+            }
+        }
+    }
+    .logo {
+        // margin: 35px 0 13.5px;
+        width: 172px;
+        transition: ease all 0.3s;
+        @include for-upto-tablet-portrait {
+            max-width: 48px;
+            // margin: 18px 0 13.5px;
+        }
+    }
+
+    .logo-container{
+        display: flex;
+        align-items: center;
+    }
+
+    .expand {
+        height: 400px;
+    }
+}
+
+
+
+
+.hamburger {
+    font: inherit;
+    // display: inline-block;
+    overflow: visible;
+    margin: 0;
+    padding: 23px 0px 10px 5px ;
+    cursor: pointer;
+    transition-timing-function: linear;
+    transition-duration: .15s;
+    transition-property: opacity,filter;
+    text-transform: none;
+    color: inherit;
+    border: 0;
+    background-color: transparent;
+    float: right;
+}
+
+// https://jonsuh.com/hamburgers/
+.hamburger-box {
+    position: relative;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+}
+
+.hamburger-inner:after, .hamburger-inner:before {
+    display: block;
+    content: "";
+}
+
+.hamburger-inner, .hamburger-inner::after, .hamburger-inner::before {
+    position: absolute;
+    width: 24px;
+    height: 2.7px;
+    transition-timing-function: ease;
+    transition-duration: .15s;
+    transition-property: transform;
+    border-radius: 0px;
+    background-color: $color-black;
+}
+
+.hamburger-inner {
+    top: 50%;
+    display: block;
+    margin-top: -2px;
+}
+
+.hamburger.is-active .hamburger-inner, .hamburger.is-active .hamburger-inner::after, .hamburger.is-active .hamburger-inner::before {
+    background-color: $color-black;
+}
+
+.hamburger--spring .hamburger-inner {
+    top: 2px;
+    transition: background-color 0s linear .13s
+}
+
+.hamburger--spring .hamburger-inner::before {
+    top: 8px;
+    transition: top .1s cubic-bezier(.33333,.66667,.66667,1) .2s,transform .13s cubic-bezier(.55,.055,.675,.19)
+}
+
+.hamburger--spring .hamburger-inner::after {
+    top: 16px;
+    transition: top .2s cubic-bezier(.33333,.66667,.66667,1) .2s,transform .13s cubic-bezier(.55,.055,.675,.19)
+}
+
+.hamburger--spring.is-active .hamburger-inner {
+    transition-delay: .22s;
+    background-color: transparent!important
+}
+
+.hamburger--spring.is-active .hamburger-inner::before {
+    top: 0;
+    transition: top .1s cubic-bezier(.33333,0,.66667,.33333) .15s,transform .13s cubic-bezier(.215,.61,.355,1) .22s;
+    transform: translate3d(0,10px,0) rotate(45deg)
+}
+
+.hamburger--spring.is-active .hamburger-inner::after {
+    top: 0;
+    transition: top .2s cubic-bezier(.33333,0,.66667,.33333),transform .13s cubic-bezier(.215,.61,.355,1) .22s;
+    transform: translate3d(0,10px,0) rotate(-45deg)
+}
+
+.hamburger--spring-r .hamburger-inner {
+    top: auto;
+    bottom: 0;
+    transition-delay: 0s;
+    transition-timing-function: cubic-bezier(.55,.055,.675,.19);
+    transition-duration: .13s
+}
+
+.hamburger--spring-r .hamburger-inner::after {
+    top: -20px;
+    transition: top .2s cubic-bezier(.33333,.66667,.66667,1) .2s,opacity 0s linear
+}
+
+.hamburger--spring-r .hamburger-inner::before {
+    transition: top .1s cubic-bezier(.33333,.66667,.66667,1) .2s,transform .13s cubic-bezier(.55,.055,.675,.19)
+}
+
+.hamburger--spring-r.is-active .hamburger-inner {
+    transition-delay: .22s;
+    transition-timing-function: cubic-bezier(.215,.61,.355,1);
+    transform: translate3d(0,-10px,0) rotate(-45deg)
+}
+
+.hamburger--spring-r.is-active .hamburger-inner::after {
+    top: 0;
+    transition: top .2s cubic-bezier(.33333,0,.66667,.33333),opacity 0s linear .22s;
+    opacity: 0
+}
+
+.hamburger--spring-r.is-active .hamburger-inner::before {
+    top: 0;
+    transition: top .1s cubic-bezier(.33333,0,.66667,.33333) .15s,transform .13s cubic-bezier(.215,.61,.355,1) .22s;
+    transform: rotate(90deg)
+}
+
+@include for-upto-tablet-portrait {
+    .hamburger-open {
+
+        .header__hide{
+            transform: none;
+        }
+
+        .nav-menu{
+            opacity: 1;
+            transition: ease all 0.5s;
+        }
+        .logo{
+            opacity: 0;
+            pointer-events: none;
+            transition: ease all 0.3s;
+        }
+        
+        li.mobile__menu--items,
+        header .nav-menu li{
+            opacity: 1 !important;
+            transform: translateY(0);
+            transition: ease all 0.5s;
+            --delay: 0.07s;
+        }
+    
+        .nav-menu li:nth-child(1){
+            padding-bottom: 20px;
+            transition-delay: calc(var(--delay) * 2);
+        }
+        .nav-menu li:nth-child(2){
+            transition-delay: calc(var(--delay) * 2.5);
+        }
+        .nav-menu li:nth-child(3){
+            transition-delay: calc(var(--delay) * 3);
+        }
+        .nav-menu li:nth-child(4){
+            transition-delay: calc(var(--delay) * 3.5);
+        }
+        .nav-menu li:nth-child(5){
+            transition-delay: calc(var(--delay) * 4);
+        }
+        .nav-menu li:nth-child(6){
+            transition-delay: calc(var(--delay) * 4.5);
+        }
+        .nav-menu li:nth-child(7){
+            transition-delay: calc(var(--delay) * 5);
+        }
+        .nav-menu li:nth-child(8){
+            transition-delay: calc(var(--delay) * 5.5);
+        }
+        .nav-menu li:nth-child(9){
+            transition-delay: calc(var(--delay) * 6);
+        }
+    }
+    
+    .nav-menu {
+        .global-search{
+            opacity: 1;
+            .searchBtn{
+                height: 100%;
+            }
+        }
+        
+        .searchInput{
+            
+            &::-webkit-input-placeholder {
+                color: $border-color-black !important;
+            }
+            &:-moz-placeholder {
+                color: $border-color-black !important;
+            }
+            &::-moz-placeholder {
+                color: $border-color-black !important;
+            }
+            &:-ms-input-placeholder {
+                color: $border-color-black !important;
+            }
+            &::-ms-clear {
+                display: none;
+            }
+            &::-webkit-search-cancel-button{
+                display: none;
+            }
+        }   
+    
+    }
+}

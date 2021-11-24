@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+   
+
+
+    
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="/static/assets/images/logo/favicon.ico" />
+    <title>
+      A Complete Guide To Incremental Static Regeneration (ISR) With Next.js
+    </title>
+    <link rel="preload" href="/static/sass/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/sass/bootstrap.min.css">
+    
+    <script src="/static/script/bootstrap.min.js"></script>
+    <style>
+        @font-face {
+            font-family: 'TundraOT Medium Italic';
+            // src: url('/static/assets/fonts/tundra/TundraOT-MediumItalic.woff');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+            unicode-range: U+000-5FF; /* Download only latin glyphs */  
+            src: local('TundraOT Medium Italic'),url('../assets/fonts/tundra/TundraOT-MediumItalic.woff') format('woff');
+            }
+
+            @font-face {
+            font-family: 'Berthold Akzidenz Grotesk Bold';
+            src: url("/static/assets/fonts/berthold/berthold-bold.eot"); /* IE9 Compat Modes */
+            src: url("/static/assets/fonts/berthold/berthold-bold.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+                url("/static/assets/fonts/berthold/berthold-bold.otf") format("opentype"), /* Open Type Font */
+                url("/static/assets/fonts/berthold/berthold-bold.ttf") format("truetype"), /* Safari, Android, iOS */
+                url("/static/assets/fonts/berthold/berthold-bold.woff") format("woff"), /* Modern Browsers */
+                url("/static/assets/fonts/berthold/berthold-bold.woff2") format("woff2"); /* Modern Browsers */
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+            }
+
+            @font-face {
+            font-family: "Berthold Akzidenz Grotesk Light";
+            src: url("/static/assets/fonts/berthold/berthold-light.eot"); /* IE9 Compat Modes */
+            src: url("/static/assets/fonts/berthold/berthold-light.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+                url("/static/assets/fonts/berthold/berthold-light.otf") format("opentype"), /* Open Type Font */
+                url("/static/assets/fonts/berthold/berthold-light.ttf") format("truetype"), /* Safari, Android, iOS */
+                url("/static/assets/fonts/berthold/berthold-light.woff") format("woff"), /* Modern Browsers */
+                url("/static/assets/fonts/berthold/berthold-light.woff2") format("woff2"); /* Modern Browsers */
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+            }
+
+            @font-face {
+            font-family: "Berthold Akzidenz Grotesk";
+            src: url("/static/assets/fonts/berthold/berthold-regular.eot"); /* IE9 Compat Modes */
+            src: url("/static/assets/fonts/berthold/berthold-regular.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+                url("/static/assets/fonts/berthold/berthold-regular.otf") format("opentype"), /* Open Type Font */
+                url("/static/assets/fonts/berthold/berthold-regular.ttf") format("truetype"), /* Safari, Android, iOS */
+                url("/static/assets/fonts/berthold/berthold-regular.woff") format("woff"), /* Modern Browsers */
+                url("/static/assets/fonts/berthold/berthold-regular.woff2") format("woff2"); /* Modern Browsers */
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+            }
+
+            @font-face {
+            font-family: "TundraOT Light";
+            src: url("/static/assets/fonts/tundra/TundraOT-Light.eot"); /* IE9 Compat Modes */
+            src: url("/static/assets/fonts/tundra/TundraOT-Light.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+                url("/static/assets/fonts/tundra/TundraOT-Light.otf") format("opentype"), /* Open Type Font */
+                url("/static/assets/fonts/tundra/TundraOT-Light.ttf") format("truetype"), /* Safari, Android, iOS */
+                url("/static/assets/fonts/tundra/TundraOT-Light.woff") format("woff"), /* Modern Browsers */
+                url("/static/assets/fonts/tundra/TundraOT-Light.woff2") format("woff2"); /* Modern Browsers */
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+            }
+    </style>
+    <link rel="stylesheet" type="text/css" href="/static/css/globals.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/modules/header.css"/>
+</head>
+<header id="header">
+    <div class="menu-cont">
+        <span class="yellowLine">
+            <span class="loader"></span>
+        </span>
+        <div class="container">
+            <div class="row">
+                <div class="col-10 col-md-2 logo-container">
+                    <a href="/" aria-label="logo" class="logo d-none d-lg-block">
+                        <img decoding="async" width="172" height="43" src="/static/assets/logo/icd-logo.9e81fca5.svg" class="logo d-none d-lg-block" alt="icd-logo" />
+                    </a>
+                    <a href="/" aria-label="logo" class="logo d-block d-lg-none">
+                        <img decoding="async" src="/static/assets/logo/mobile-logo-new.png" width="48" height="36"  class="logo d-block d-lg-none" alt="icd-logo" />
+                    </a>
+                </div>
+                <div class="col-2 col-md-10">
+                    <div class="d-block d-lg-none">
+
+                        <div class="hamburger hamburger--spring js-hamburger" onclick="hamburgerToggle()">
+                            <div class="hamburger-box">
+                                <div class="hamburger-inner"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="nav-menu">
+                        <div class="container">
+                            <div class="row">
+                                <ul>
+                                    <li class="mobile__menu--items" onclick="hamburgerClose()"><a href="/">home</a></li>
+                                    <li onclick="hamburgerClose()" ><a href="/projects">projects</a></li>
+                                    <li onclick="hamburgerClose()" ><a href="/clients">clients</a></li>
+                                    <li onclick="hamburgerClose()" ><a href="/services">services</a></li>
+                                    <li onclick="hamburgerClose()" ><a href="/posts">posts</a></li>
+                                    <li onclick="hamburgerClose()" ><a href="/contact">contact</a></li>
+                                    <li onclick="hamburgerClose()" class="mobile__menu--items"><a href="/our-team">team</a></li>
+                                    <li onclick="hamburgerClose()" class="mobile__menu--items"><a href="/careers">careers</a></li>
+                                    <li onclick="hamburgerClose()" class="copyright">© 1990-2019 itu chaudhuri design pvt ltd | all rights reserved. please note — no images or content from site can be reproduced without prior written consent from icd</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+                  
+
+    <div id="close">
+        <span class="close-wrap" onClick={this.searchToggle}>
+            <span class="close-line close-line1"></span>
+            <span class="close-line close-line2"></span>
+        </span>
+    </div>
+</header>
+
+<script>
+    function hamburgerToggle() {
+        $('body').toggleClass('hamburger-open');
+        $('.hamburger, .nav-menu').toggleClass("is-active");
+    }
+
+    function hamburgerClose() {
+        $('body').removeClass('hamburger-open');
+        $('.hamburger, .nav-menu').removeClass("is-active");
+    }
+    
+</script>
+
+<link rel="stylesheet" type="text/css" href="/static/css/modules/singlePost.module.css"/>
+
+<section class="singlePost mT__260">
+    <div class="images-loaded-container">
+        
+                <span class="full_thumb">
+                </span>
+        
+    </div>
+    <div class="postContent_cont">
+   <div class="container">
+      <div class="row">
+         <div class="col-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
+            <div class="posts__container">
+               <div class="post__tag"><span class="yellow__tag"><span>studio diaries</span></span></div>
+               <h1>A Complete Guide To Incremental Static Regeneration (ISR) With Next.js</h1>
+               <div class="post__author">
+                  <span class="author__img">
+                     
+                  </span>
+                  <span class="post-detail"> / 30 September 2021 / <span> studio diaries </span> </span>
+                  <div class="social__media header_socialmedia d-none d-lg-block">
+                     <span class="icon share-icon icons-hide"><a href="" class="linkedin-icon" target="_blank"></a></span>
+                     <span class="icon share-icon icons-hide"><a href="" class="twitter-icon" target="_blank"></a></span>
+                     <span class="icon share-icon icons-hide"><a href="" class="fb-icon" target="_blank"></a></span>
+                     <span class="icon" onclick="toggleShareIcons()"><img loading="lazy" decoding="async" src="/static/assets/images/post-buttons/share.svg" width="20" height="20" class="icon-img shareIcon--main" />share</span>
+                     <span class="like-btn icon">
+                        <div class="like-icon"><img loading="lazy" decoding="async" src="/static/assets/images/like-btn/like.svg" class="icon-img icon-outline"></div>
+                        11 likes
+                     </span>
+                  </div>
+                  <div class="social__media header_socialmedia header_socialmedia_mobile d-block d-lg-none">
+                     <span class="like-btn icon">
+                        <div class="like-icon"><img loading="lazy" decoding="async" src="/static/assets/images/like-btn/like.svg" class="icon-img icon-outline"></div>
+                        11 likes
+                     </span>
+                     <span class="icon share-icon icons-hide"><a href="" class="linkedin-icon" target="_blank"></a></span>
+                     <span class="icon share-icon icons-hide"><a href="" class="twitter-icon" target="_blank"></a></span>
+                     <span class="icon share-icon icons-hide"><a href="" class="fb-icon" target="_blank"></a></span>
+                     <span class="icon" onclick="toggleShareIcons()"><img loading="lazy" decoding="async" src="/static/assets/images/post-buttons/share.svg" width="20" height="20" class="icon-img shareIcon--main" />share</span>
+                  </div>
+               </div>
+               <div class="postContent">
+                    
+<p>In this article, I’d like to explore a new evolution of the Jamstack:&nbsp;<strong>Incremental Static Regeneration (ISR)</strong>. Below you’ll find a guide to ISR — including use cases, demos and tradeoffs.</p>
+
+               </div>
+            </div>
+               <div class="social__media d-none d-lg-block">
+                  <span class="icon share-icon icons-hide"><a href="" class="linkedin-icon" target="_blank"></a></span>
+                  <span class="icon share-icon icons-hide"><a href="" class="twitter-icon" target="_blank"></a></span>
+                  <span class="icon share-icon icons-hide"><a href="" class="fb-icon" target="_blank"></a></span>
+                  <span class="icon" onclick="toggleShareIcons()"><img loading="lazy" decoding="async" src="/static/assets/images/post-buttons/share.svg" width="20" height="20" class="icon-img shareIcon--main" />share</span>
+                  <span class="like-btn icon">
+                     <div class="like-icon"><img loading="lazy" decoding="async" src="/static/assets/images/like-btn/like.svg" class="icon-img icon-outline"></div>
+                     11 likes
+                  </span>
+               </div>
+         </div>
+      </div>
+   </div>
+</div>
+</section>
+
+<script>
+  // add class to body element
+   document.body.classList.add('bg-yellow');
+   function toggleShareIcons() {
+      $('.share-icon').toggleClass('icons-hide');
+   }
+</script>
+
+    
+
+
+    
+
+  </body>
+</html>
